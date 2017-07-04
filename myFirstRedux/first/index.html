@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>First REACT</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+</head>
+<body>
+    
+	Clicked: <span id="value">0</span> times
+        <button id="increment">+</button>
+        <button id="decrement">-</button>
+        <button id="incrementIfOdd">Increment if odd</button>
+        <button id="incrementAsync">Increment async</button>
+
+<script type="text/javascript">
+	
+//action type
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
+
+//action 函数 , 
+function action(kind) {
+	return {
+		type:kind
+	}
+}
+
+const initialState = 0;
+	// Action 只是描述了有事情发生了这一事实，并没有指明应用如何更新 state。而这正是 reducer 要做的事情。
+	
+	// reducer 就是一个纯函数，接收旧的 state 和 action，返回新的 state
+	function counter(state,action) {
+
+		if(typeof state === 'undefined') {
+			return initialState;
+		}
+		switch(action.type) {
+			case INCREMENT:
+				return state + 1;
+			case DECREMENT:
+				return state - 1;
+			default:
+				return state;
+		}
+
+		
+	}
+
+var store = Redux.createStore(counter);
+
+
+let increment = document.getElementById('increment'),
+	decrement = document.getElementById('decrement'),
+	incrementIfOdd = document.getElementById('incrementIfOdd'),
+	valueDom = document.getElementById('value');
+
+
+//渲染 页面数据的函数
+function render() {
+	var state = store.getState().toString();
+	valueDom.innerHTML = state;
+}
+render();
+
+store.subscribe(render);
+
+increment.addEventListener('click', function() {
+	store.dispatch(action('INCREMENT'));
+	// 如何action函数比较简单，这里可以在store.dispatch里直接
+},false);
+
+decrement.addEventListener('click', function() {
+	store.dispatch(action('DECREMENT'));
+},false);
+
+
+</script>
+</body>
+</html>
