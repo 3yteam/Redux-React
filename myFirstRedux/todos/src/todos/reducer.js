@@ -6,7 +6,8 @@ export default (state = [], action) => {
       return [
         {
           id: action.id,
-          text: action.text
+          text: action.text,
+          completed:false
         },
         ...state
       ]
@@ -14,9 +15,10 @@ export default (state = [], action) => {
     case TOGGLE_TODO: {
       return state.map((todoItem) => {
         if (todoItem.id === action.id) {
-           return {...todoItem, completed: !todoItem.completed};
+          let newtodoItem  = {...todoItem, completed: !todoItem.completed}
+           return newtodoItem;
         } else {
-          return todoItem;
+           return todoItem;
         }
       })
     }

@@ -1,27 +1,22 @@
-import React, {PropTypes} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {setFilter} from '../actions.js';
 
-const Link = ({active, children, onClick}) => {
-  if (active) {
-    return <b className="filter selected">{children}</b>;
-  } else {
-    return (
-      <a href="#" className="filter not-selected" onClick={(ev) => {
-        ev.preventDefault();
-        onClick();
-      }}>
-        {children}
-      </a>
-    );
-  }
-};
+class Link extends Component {
 
-Link.propTypes = {
-  active: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired
-};
+  render() {
+    let {active, children, onClickFun} = this.props;
+    if (active) {
+      return <b className="filter selected">{children}</b>;
+    } else {
+      return (
+        <a href="javascript:void(0)" className="filter not-selected" onClick={onClickFun}>
+          {children}
+        </a>
+      );
+      }
+  }
+}
 
 const mapStateToProps = (state, ownProps) => {
   return {
