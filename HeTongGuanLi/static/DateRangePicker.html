@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<title>日历演示</title>
+
+<link rel="stylesheet" type="text/css" href="css/daterangepicker.css"/>
+<link rel="stylesheet" type="text/css" href="css/layout.css"/>
+<style>
+    input {
+        min-width:300px;
+    }
+    .date-list li {
+        margin-bottom:15px;
+    }
+    .date-picker-wrapper .footer {
+        display: block;
+    }
+</style>
+<div class="frame-left">
+    <div class="hello-box">
+        <i class="logo"></i>
+        <em><b>戴勇明</b>，你好</em>
+    </div>
+    <ul class="main-menu">
+        <li><a href="javascript:void(0);"><i class="icon-m01"></i>客户管理<em class="icon-add"></em> </a></li>
+        <li><a href="javascript:void(0);"><i class="icon-m02"></i>融租线索<em class="icon-add"></em> </a></li>
+        <li><a href="javascript:void(0);" class="current"><i class="icon-m03"></i>合同管理</a></li>
+        <li><a href="javascript:void(0);"><i class="icon-m04"></i>还款管理</a></li>
+        <li><a href="javascript:void(0);"><i class="icon-m05"></i>保险定点医院申请</a></li>
+        <li><a href="DateRangePicker.html"><i class="icon-m06"></i>日历控件</a></li>
+    </ul>
+</div>
+<div class="frame-right"  id="mainContentFrame">
+    <div class="search-box" style="margin-bottom:20px;">
+        <h2 class="">date range picker demo</h2>
+
+    </div>
+
+    <p>
+        jQuery Date Range Picker是一款允许用户选择一个日期时间范围的jQuery日期选择器插件。整个日期选择器插件使用CSS来渲染样式，可以非常容易的使用CSS来定制它的皮肤。它的兼容性非常好，支持IE6+的IE浏览器。
+
+        该日期选择器的特点有： <br/>
+
+        （1）支持IE6+, Firefox, Chrome, Safari和其他标准的HTML5浏览器。<br/>
+
+        （2）支持多种语言。<br/>
+
+        （3）使用CSS来渲染样式。<br/>
+
+        （4）容易使用和定制。<br/>
+
+        （5）支持多种时间格式。<br/>
+
+        <span>参考：https://rawgit.com/longbill/jquery-date-range-picker/master/index.html</span>
+    </p>
+
+    <ul class="date-list">
+        <li>
+            Default settings: <input id="date-range01">
+        </li>
+        <li>
+            Default settings with time enabled:<input id="date-range02">
+        </li>
+        <li>
+            Default settings with default start/end time value: <input id="date-range03">
+        </li>
+
+        <li>
+            Default settings with default start/end time value: <input id="date-range04">
+        </li>
+
+        <li>
+            Use past date shortcuts: <input id="date-range05">
+        </li>
+
+        <li>
+            Use custom shortcuts:<input id="date-range06">
+        </li>
+
+        <li>Use custom values: <input id="date-range07"></li>
+        <li>Auto-close after selection: <input id="date-range08"></li>
+
+        <li> In-line mode: <input id="date-range09" >
+
+            <div id="date-range12-container"></div>
+        </li>
+
+        <li>
+            Single Date mode: <input id="date-range10" >
+        </li>
+        <li>Batch mode ( week ) <input id="date-range11" > </li>
+        <li>Batch mode ( week-range ): <input id="date-range12" > </li>
+
+        <Li>Disable some dates <input id="date-range13" > </Li>
+
+        <li>Sticky months <input id="date-range14" > </li>
+        <li>Use custom top bar <input id="date-range15" ></li>
+
+        <li>Hide hovering tooltip <input id="date-range16" > </li>
+        <li>Customize hovering tooltip: <input id="date-range17" ></li>
+        <li>Single Month Mode <input id="date-range18" ></li>
+        <li>Show Week Numbers: <input id="date-range19" > </li>
+    </ul>
+
+
+</div>
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js" type="text/javascript"></script>
+<script src="js/components/jquery.daterangepicker-0.0.7.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+    $(function() {
+        $('#date-range01').dateRangePicker();
+
+        $('#date-range02').dateRangePicker({
+                    startOfWeek: 'monday',
+                    separator : ' ~ ',
+                    format: 'DD.MM.YYYY HH:mm',
+                    autoClose: false,
+                    time: {
+                        enabled: true
+                    }
+                });
+
+        $('#date-range03').dateRangePicker({
+            startOfWeek: 'monday',
+            separator : ' ~ ',
+            format: 'DD.MM.YYYY HH:mm',
+            autoClose: false,
+            time: {
+                enabled: true
+            },
+            defaultTime: moment().startOf('day').toDate(),
+            defaultEndTime: moment().endOf('day').toDate()
+        });
+
+        $('#date-range04').dateRangePicker({
+            language:'cn',
+            maxDays: 7,
+            minDays: 3,
+            startDate: '2013-01-10',
+            endDate: '2013-02-10',
+            showShortcuts: true,
+            shortcuts :
+            {
+                'next-days': [3,5,7],
+                'next': ['week','month','year']
+            }
+        });
+
+        $('#date-range05').dateRangePicker({
+            showShortcuts: true,
+            shortcuts :
+            {
+                'prev-days': [3,5,7],
+                'prev': ['week','month','year'],
+                'next-days':null,
+                'next':null
+            }
+        });
+
+        $('#date-range06').dateRangePicker({
+            showShortcuts: true,
+            shortcuts : null,
+            startOfWeek: 'sunday',
+            language:'en',
+            customShortcuts:
+                    [
+                        //if return an array of two dates, it will select the date range between the two dates
+                        {
+                            name: 'this week',
+                            dates : function()
+                            {
+                                var start = moment().day(0).toDate();
+                                var end = moment().day(6).toDate();
+                                return [start,end];
+                            }
+                        },
+                        //if only return an array of one date, it will display the month which containing the date. and it will not select any date range
+                        {
+                            name: 'Oct 2014',
+                            dates : function()
+                            {
+                                //move calendars to show this date's month and next month
+                                var movetodate = moment('2014-10','YYYY-MM').toDate();
+                                return [movetodate];
+                            }
+                        }
+                    ]
+        });
+
+        $('#date-range07').dateRangePicker({
+            language:'en',
+            customValueLabel: 'Dynamic Ranges',
+            showCustomValues: true,
+            customValues:
+            //if return an array of two dates, it will select the date range between the two dates
+                    [
+                        {
+                            name: 'MTD',
+                            value: 'Month To Date'
+                        },
+                        {
+                            name: 'YTD',
+                            value: 'Year To Date'
+                        }
+                    ]
+        });
+
+        $('#date-range08').dateRangePicker({
+            autoClose: true
+        });
+
+        $('#date-range09').dateRangePicker({
+            inline:true,
+            container: '#date-range12-container',
+            alwaysOpen:true
+        });
+
+        $('#date-range10').dateRangePicker({
+            autoClose: true,
+            singleDate : true,
+            showShortcuts: false,
+            singleMonth: true
+        });
+
+        $('#date-range11').dateRangePicker({
+            batchMode: 'week',
+            showShortcuts: false
+        });
+
+        $('#date-range12').dateRangePicker({
+            batchMode: 'week-range',
+            showShortcuts: false
+        });
+
+        $('#date-range13').dateRangePicker({
+            showShortcuts: false,
+            beforeShowDay: function(t) {
+                var valid = !(t.getDay() == 0 || t.getDay() == 6);  //disable saturday and sunday
+                var _class = '';
+                var _tooltip = valid ? '' : 'weekends are disabled';
+                return [valid,_class,_tooltip];
+            }
+        });
+
+        $('#date-range14').dateRangePicker({
+            stickyMonths: true,
+            startDate: '2013-01-10',
+            endDate: '2013-05-10'
+        });
+
+        $('#date-range15').dateRangePicker({
+            customTopBar: 'Foo Bar'
+        });
+
+        $('#date-range16').dateRangePicker({
+            hoveringTooltip: false,
+
+        });
+
+        $('#date-range17').dateRangePicker({
+            hoveringTooltip: function(days)
+            {
+                var D = ['One','Two', 'Three','Four','Five'];
+                return D[days] ? D[days] : days;
+            }
+        });
+
+        $('#date-range18').dateRangePicker({
+            singleMonth: true,
+            showShortcuts: false,
+            showTopbar: false
+
+        });
+
+        $('#date-range19').dateRangePicker({
+            showWeekNumbers: true,
+            selectForward: false
+
+        });
+
+    })
+</script>
+</head>
+<body>
+
+</body>
+</html>

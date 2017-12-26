@@ -1,0 +1,8 @@
+.DS_Store
+**/*.DS_Store
+**/**/*.DS_Store
+.idea
+mpn-debug.log
+node_modules
+build/
+static/images/.DS_Store

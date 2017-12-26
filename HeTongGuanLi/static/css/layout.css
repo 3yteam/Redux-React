@@ -1,0 +1,193 @@
+@import 'reset.css';
+.frame-left {
+  width:230px;
+  background: #2b303e;
+  height:100%;
+  height:100vh;
+  float:left;
+}
+
+.frame-right {
+  margin-left:230px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top:20px;
+  height:100%;
+  height:100vh;
+  overflow: auto;
+}
+
+.hello-box {
+  padding:13px;
+  background: #222632;
+  color: #cccdce;
+}
+.hello-box .logo {
+  display: inline-block;
+  width:51px;
+  height:51px;
+  background: url('../images/logo.png') left center no-repeat;
+  vertical-align: middle;
+  margin-right: 30px;
+  margin-left: 5px;
+}
+.hello-box em {
+  font-size:14px;
+
+}
+.hello-box em b {
+  color: #fff;
+  font-weight: normal;
+}
+.main-menu {
+  margin-top:10px;
+}
+.main-menu li {
+  height:50px;
+  line-height: 50px;
+
+
+}
+.main-menu li a {
+  display: block;
+  padding-left:30px;
+  border-left:4px solid #2b303e;
+  color: #f5f5f5;
+}
+.main-menu li a:hover,
+.main-menu li a.current {
+  background: #222632;
+  box-sizing: border-box;
+  border-left:4px solid #fda922;
+}
+.main-menu li .icon-m01  {
+  width:15px;
+  height:15px;
+}
+.search-box {
+  border:1px solid #dfe2e5;
+  border-radius:5px;
+  background: #fff;
+  padding:15px;
+  margin-top: 40px;
+}
+.search-box .column-title {
+  font-weight: bold;
+  color: #354052;
+  font-size: 16px;
+  position: relative;
+}
+.search-box .column-title:after {
+  content: '';
+  width:18px;
+  height:12px;
+  background: url('../images/icon-arrow.png') left top no-repeat;
+  position: absolute;
+  vertical-align: middle;
+  left: 60px;
+  top: 35px;
+}
+.content-section {
+  padding-top:20px;
+}
+.date-picker-wrapper .footer {
+  display: none;
+}
+
+.form-box input[type="text"]{
+  width:300px;
+}
+.form-box input[type="radio"] {
+  margin-right:10px;
+  margin-left:10px;
+}
+
+.form-box textarea {
+  width:400px;
+}
+.form-box select {
+  height:30px;
+  margin:10px;
+  width:200px;
+}
+.btn-normal {
+  width:200px;
+  height:45px;
+  background: orange;
+  text-align: center;
+  line-height: 45px;
+  color: #fff;
+  margin-top:20px;
+}
+
+.skill-list a {
+  color: #333;
+}
+.skill-list li {
+  list-style-type: disc;
+  list-style-position: inside;
+  line-height: 42px;
+  border-bottom: 1px dashed #ccc;
+}
+
+.skill-list a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+.paginationDiv {
+  margin-top:30px;
+}
+.paginationDiv span a {
+  width:25px;
+  height:25px;
+  display: inline-block;
+  line-height: 25px;
+  text-align: center;
+  margin-right:8px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
+.paginationDiv span a.current {
+  background: orange;
+}
+
+/*pop window*/
+
+.tip-window-layer {
+  position: absolute;
+  right:0;
+  top:0;
+  border: 1px solid #231234;
+  padding:0 0px 10px 0px;
+  z-index: 999;
+  background: #fff;
+}
+.tip-header-section {
+  height:30px; 
+  line-height:30px; 
+  font-size:14px;
+  background-color:#231234;
+  color:white;
+}
+.tip-title {
+  float:left; width:80%;margin-left:5px;
+}
+.tip-icon-close {
+  float:right; cursor:pointer;margin-right:5px;
+}
+.tip-main-content {
+  height:auto; 
+  overflow:hidden; 
+  line-height:24px;
+  padding:10px;
+  text-align:center;
+  margin-top:10px;
+}
+.btnOk {
+  float:right; width:50px; margin-right:10px;cursor:pointer 
+}
+.btnNo {
+  float:right; width:50px;cursor:pointer;margin-right: 10px;
+}
